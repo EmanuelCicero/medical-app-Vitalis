@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     color: 'rgb(77, 155, 145)'
   },
   conteudo: {
+    margin: '15%',
     flex: 7,
     backgroundColor: 'white',
     alignItems: 'center',
