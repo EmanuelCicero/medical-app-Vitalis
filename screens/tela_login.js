@@ -1,11 +1,10 @@
 import * as React from 'react'; 
-import {Input, Button} from '@rneui/themed';
 import { View, Text, TextInput, SafeAreaView, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 export default function telaLogin({navigation}){
   return (
     <View style={styles.container}>
-      <Text style={styles.texto_login}>Login</Text>
+      <Text style={styles.texto_login}>Entrar</Text>
       <Text style={styles.texto_caixa}>E-mail</Text>
       <TextInput placeholder='Digite seu e-mail' style={styles.inputs}/>
       <Text style={styles.texto_caixa}>Senha</Text>
@@ -14,7 +13,7 @@ export default function telaLogin({navigation}){
           <TouchableOpacity style={styles.botao} onPress={() => {
             
           }}>
-            <Text style={styles.texto_botao}>Login</Text>
+            <Text style={styles.texto_botao}>Entrar</Text>
           </TouchableOpacity>
         </View>
       <View style={styles.signup_container}>
@@ -46,6 +45,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },  
   caixa_botao: {
+    marginTop: 35,
     width: 350,
     height: 100,
     alignSelf: 'center',

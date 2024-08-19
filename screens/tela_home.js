@@ -18,13 +18,19 @@ export default function telaHome({navigation}){
           <TouchableOpacity style={styles.botao} onPress={() => {
             navigation.navigate('Login')
           }}>
-            <Text style={styles.texto_botao}>Login</Text>
+            <Text style={styles.texto_botao}>Entrar</Text>
           </TouchableOpacity>
         </View>
-        <Text>Não tem uma conta? Cadastre-se</Text>
 
+        <View style={styles.signup_container}>
+        <Text style={styles.texto_cadastro}>Não tem uma conta? </Text>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate('Cadastro')
+        }}>
+          <Text style={styles.signup_text}>Cadastre-se</Text>
+        </TouchableOpacity>
+        </View>
       </View>
-
     </View>
   );
 }
@@ -83,4 +89,12 @@ const styles = StyleSheet.create({
     fontSize: 18,               
     textAlign: 'center',        
   },
+  signup_container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  signup_text: {
+    textDecorationLine: 'underline',
+    color: 'rgb(29,72,99)',
+  },  
 });
