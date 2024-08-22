@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text, Image, TouchableOpacity,  ScrollView } from "react-native";
-import Buttom from "../../components/buttom";
+import Button from "../../components/button";
 import { styles } from "./style_home";
 
 export function telaHome({ navigation }) {
@@ -24,7 +24,7 @@ export function telaHome({ navigation }) {
             style={styles.image_conteudo}
           />
 
-          <Buttom
+          <Button
             title={"Entrar"}
             onPress={() => {
               navigation.navigate("Login");
