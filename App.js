@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import telaCadastro from "./src/views/register/register.js";
 // import telaLogin from "./src/views/login/login.js";
 
-import { telaHome, telaCadastro, telaLogin } from './src/views';
+import { telaHome, telaCadastro, telaLogin, telaPerfil } from './src/views';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +28,10 @@ export default function App() {
           name="Cadastro"
           component={telaCadastro}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name='Preencha seu Perfil'
+          component={telaPerfil}
         />
       </Stack.Navigator>
     </NavigationContainer>

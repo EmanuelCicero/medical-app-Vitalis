@@ -12,29 +12,11 @@ export const styles = StyleSheet.create({
       fontWeight: "bold",
       alignSelf: "center",
     },
-    caixa_botao: {
-      marginTop: 35,
-      width: 350,
-      height: 100,
-      alignSelf: "center",
-    },
-    botao: {
-      backgroundColor: "rgb(77, 155, 145)",
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      borderRadius: 15,
-    },
-    texto_botao: {
-      color: "white",
-      fontSize: 20,
-      textAlign: "center",
-    },
     inputs: {
       height: 46,
       width: 350,
       backgroundColor: "rgb(228, 241, 238)",
       borderRadius: 5,
-      padding: 5,
       margin: 20,
     },
     texto_caixa: {
@@ -43,6 +25,7 @@ export const styles = StyleSheet.create({
     signup_container: {
       flexDirection: "row",
       justifyContent: "center",
+      marginTop: 15,
     },
     signup_text: {
       textDecorationLine: "underline",

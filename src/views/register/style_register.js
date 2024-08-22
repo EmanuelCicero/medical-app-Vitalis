@@ -18,47 +18,29 @@ export const styles = StyleSheet.create({
   },
   name_input: {
     height: 46,
-    width: 170,
+    width: 165,
     backgroundColor: "rgb(228, 241, 238)",
     borderRadius: 5,
-    padding: 5,
     margin: 10,
   },
   text_name: {
-    margin: 10,
-  },
-  caixa_botao: {
-    width: 320,
-    height: 100,
-    marginTop: 56,
-    alignSelf: "center",
-  },
-  botao: {
-    backgroundColor: "rgb(77, 155, 145)",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 15,
-  },
-  texto_botao: {
-    color: "white",
-    fontSize: 18,
-    textAlign: "center",
+    marginLeft: 10,
   },
   inputs: {
     height: 46,
     width: 350,
     backgroundColor: "rgb(228, 241, 238)",
     borderRadius: 5,
-    padding: 5,
-    margin: 10,
+    marginBottom: 20,
   },
-  texto_caixa: {
-    margin: 10,
+  text_input: {
+    margin: 5,
   },
   texto_login: {
     textAlign: "center",
   },
   login_text_container: {
+    marginTop: 25,
     flexDirection: "row",
     justifyContent: "center",
   },
