@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, Modal, FlatList } from "react-native";
 import { Avatar, IconButton, TextInput } from 'react-native-paper';
-import { styles } from "./style_profile";
+import { styles } from "./style_register_profile";
 import Button from "../../components/button";
 
 export function telaPerfil({navigation}) {
