@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import telaCadastro from "./src/views/register/register.js";
 // import telaLogin from "./src/views/login/login.js";
 
-import { telaHome, telaCadastro, telaLogin, telaPerfil } from './src/views';
+import { telaHome, telaCadastro, telaLogin, telaPreencherPerfil, telaMeuPerfil } from './src/views';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,12 @@ export default function App() {
         />
         <Stack.Screen 
           name='Preencha seu Perfil'
-          component={telaPerfil}
+          component={telaPreencherPerfil}
+        />
+        <Stack.Screen 
+          name='Perfil'
+          component={telaMeuPerfil}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

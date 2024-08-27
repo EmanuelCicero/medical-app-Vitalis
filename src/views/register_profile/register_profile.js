@@ -4,7 +4,7 @@ import { Avatar, IconButton, TextInput } from 'react-native-paper';
 import { styles } from "./style_register_profile";
 import Button from "../../components/button";
 
-export function telaPerfil({navigation}) {
+export function telaPreencherPerfil({navigation}) {
     const [selectedValue, setSelectedValue] = React.useState("Selecione uma opção");
     const [modalVisible, setModalVisible] = React.useState(false);
   
