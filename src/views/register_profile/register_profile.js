@@ -76,7 +76,8 @@ export function telaPreencherPerfil({navigation}) {
                 <View style={styles.container_button}>
                     <Button
                         title={"Cadastrar"}
-                        onPress={() => {                           
+                        onPress={() => {     
+                            navigation.navigate("Main");                  
                         }}
                     />
                 </View>
