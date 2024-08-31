@@ -2,7 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { telaHome, telaCadastro, telaLogin, telaPreencherPerfil, telaMeuPerfil, Main } from './src/views';
+import { telaHome, telaCadastro, telaLogin, telaPreencherPerfil, telaMeuPerfil, Main, Doctors } from './src/views';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +38,11 @@ export default function App() {
           name="Main"
           component={Main}
           options={{headerShown: false}}
-
+        />
+        <Stack.Screen
+          name="Doctors"
+          component={Doctors}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

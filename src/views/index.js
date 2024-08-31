@@ -4,3 +4,4 @@ export * from "./login/login";
 export * from "./register_profile/register_profile";
 export * from "./profile/profile";
 export * from "./main/main";
+export * from "./doctors/doctors"
