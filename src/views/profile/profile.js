@@ -2,8 +2,9 @@ import * as React from "react";
 import { View, Text, TouchableOpacity} from "react-native";
 import { Avatar, Icon, TextInput } from 'react-native-paper';
 import { styles } from "./style_profile";
+import NavBar from "../../components/navBar"
 
-export function telaMeuPerfil(){
+export function telaMeuPerfil({navigation, route}){
     return(
         <View style={styles.container}>
             <View style={styles.container_image_title}>
@@ -31,6 +32,7 @@ export function telaMeuPerfil(){
                     </View>
                 </TouchableOpacity>
             </View>
+            <NavBar navigation={navigation} route={route}/>
         </View>
     );
 }

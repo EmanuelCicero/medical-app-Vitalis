@@ -3,36 +3,34 @@ import { View,StyleSheet, TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Card } from "react-native-paper";
 
-const NavBar = () => {
-  const [colorIcon, setColorIcon] = React.useState("home");
-
-  const changeColorIcon = (nameIcon) => {
-    setColorIcon(nameIcon);
+const NavBar = ({ navigation, route }) => {
+  const changeColorIcon = (screen) => {
+    return route.name === screen ? "#4D9B91" : "black";
   };
 
-  return (
+  return (  
     <View>
       <Card style={styles.containerNavBar}>
         <View style={styles.navBar}>
-          <TouchableOpacity onPress={() => changeColorIcon("home") }>
+          <TouchableOpacity onPress={() => navigation.navigate("Main")}>
             <MaterialCommunityIcons
               name="home"
               size={40}
-              color={colorIcon === "home" ? "#4D9B91" : "black"}
+              color={changeColorIcon("Main")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() =>changeColorIcon("calendar-check")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Doctors")}>
             <MaterialCommunityIcons
               name="calendar-check"
               size={40}
-              color={colorIcon === "calendar-check" ? "#4D9B91" : "black"}
+              color={changeColorIcon("Doctors")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => changeColorIcon("account-supervisor")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Perfil")}>
             <MaterialCommunityIcons
               name="account"
               size={40}
-              color={colorIcon === "account-supervisor" ? "#4D9B91" : "black"}
+              color={changeColorIcon("Perfil")}
             />
           </TouchableOpacity>
         </View>
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    borderWidth: 0.5,
+    borderWidth: 0.3,
     justifyContent: "center"
   },
   navBar: {

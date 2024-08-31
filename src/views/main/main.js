@@ -19,7 +19,7 @@ const imagesCarousel = [
   { uri: "https://i.postimg.cc/W1YVWcqw/Banner.jpg" },
 ];
 
-export function Main() {
+export function Main( { navigation, route }) {
   const handleFlashScrollIndicators = () => {
     if (scrollViewRef.current) {
       scrollViewRef.current.flashScrollIndicators();
@@ -197,7 +197,7 @@ export function Main() {
               </Card.Content>
             </Card>
           </View>
-          <NavBar/>
+          <NavBar navigation={navigation} route={route}/>
         </ImageBackground>
       </View>
     </SafeAreaView>
