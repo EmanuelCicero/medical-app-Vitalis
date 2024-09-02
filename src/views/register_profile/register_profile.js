@@ -17,38 +17,49 @@ export function telaPreencherPerfil({ route, navigation }) {
     const verifyUserCpf = (strCPF) => {
         var Soma;
         var Resto;
-        var error = "";
         Soma = 0;
 
-        if (strCPF == "00000000000") error = "CPF inválido!";
+        if (strCPF == "00000000000")
+        {
+            setCPFError("CPF inválido!");
+            return false;
+        } 
 
         for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
         Resto = (Soma * 10) % 11;
 
         if ((Resto == 10) || (Resto == 11)) Resto = 0;
-        if (Resto != parseInt(strCPF.substring(9, 10))) error = "CPF inválido!";
-
+        if (Resto != parseInt(strCPF.substring(9, 10))) 
+        {
+            setCPFError("CPF inválido!");
+            return false;
+        }
         Soma = 0;
         for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
         Resto = (Soma * 10) % 11;
 
         if ((Resto == 10) || (Resto == 11)) Resto = 0;
-        if (Resto != parseInt(strCPF.substring(10, 11))) error = "CPF inválido!";
-        setCPFError(error);
-        return error;
+        if (Resto != parseInt(strCPF.substring(10, 11)))
+        { 
+            setCPFError("CPF inválido!");
+            return false;
+        }
+        setCPFError("");
+        return true;
 
     };
 
     const verifyUserBirthDate = (valor) => {
-        var error = "";
         // Verifica se a entrada é uma string
         if (typeof valor !== 'string') {
-            error = "Data de nascimento inválida!";
+            setBirthDateError("Data de nascimento inválida!");
+            return false;
         }
 
         // Verifica formato da data
         if (!/^\d{2}\/\d{2}\/\d{4}$/.test(valor)) {
-            error = "Data de nascimento inválida!";
+            setBirthDateError("Data de nascimento inválida!");
+            return false;
         }
 
         // Divide a data para o objeto "data"
@@ -75,25 +86,27 @@ export function telaPreencherPerfil({ route, navigation }) {
         // Regras de validação:
         // Mês deve estar entre 1 e 12, e o dia deve ser maior que zero
         if (mes < 1 || mes > 12 || dia < 1) {
-            return error = "Data de nascimento inválida!";
+            setBirthDateError("Data de nascimento inválida!");
+            return false;
         }
         // Valida número de dias do mês
         else if (dia > diasNoMes[mes]) {
-            return error = "Data de nascimento inválida!";
+            setBirthDateError("Data de nascimento inválida!");
+            return false;
         }
 
-        setBirthDateError(error);
+        setBirthDateError("");
         // Passou nas validações
-        return error;
+        return true;
     };
 
-    const verifyUserGender = () => {
-        var error = "";
+    const verifyUserGender = (gender) => {
         if (!gender) {
-            error = "Selecione uma opção acima!";
+            setGenderError("Selecione uma opção acima!");
+            return false;
         }
-        setGenderError(error);
-        return error;
+        setGenderError("");
+        return true;
     };
 
     const options = [
@@ -105,7 +118,6 @@ export function telaPreencherPerfil({ route, navigation }) {
         setGender(item.value);
         setModalVisible(false);
     };
-
     const handleDateChange = (text) => {
         let formattedText = text.replace(/[^0-9]/g, '');
 
@@ -122,23 +134,42 @@ export function telaPreencherPerfil({ route, navigation }) {
             setBirthDate(formattedText);
         }
     };
+    function convertToJSONDate(dateString) {
+        // Divide a string da data em dia, mês e ano
+        const parts = dateString.split('/');
+        const day = parts[0];
+        const month = parts[1];
+        const year = parts[2];
+      
+        // Cria um objeto Date com a data
+        const date = new Date(year, month - 1, day);
+      
+        // Converte a data para uma string no formato ISO 8601
+        const isoDateString = date.toISOString();
+        
+        return isoDateString;
+      }
+    
     const handleValidate = async () => {
-        const isValid = verifyUserCpf(cpf) && verifyUserBirthDate(birthDate) && verifyUserGender();
-        if (isValid == "") {
+        const isValid = verifyUserCpf(cpf);
+        const isValid2 = verifyUserBirthDate(birthDate);
+        const isValid3 = verifyUserGender(gender);
+        
+        if (isValid && isValid2 && isValid3) {
             try {
-                const response = await fetch('http://localhost:8081/api/auth/register', {
+                const response = await fetch('http://10.0.2.2:5000/api/auth/register', {
                     method: 'POST',
                     headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
+                        'Content-type': 'application/json',
                     },
                     body: JSON.stringify({
-                        firstName,
-                        lastName,
-                        email,
-                        password,
-                        cpf,
-                        birthDate,
-                        gender
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password,
+                        cpf: cpf,
+                        birthDate: convertToJSONDate(birthDate),
+                        gender: gender,
                     }),
                 });
 

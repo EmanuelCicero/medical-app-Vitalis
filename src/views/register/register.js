@@ -17,51 +17,55 @@ export function telaCadastro({ navigation }) {
     setIsVisible(prevState => !prevState);
   }
   const verifyUserName = (nome, sobrenome) => {
-    var error = "";
     var padrao = /[^a-zà-ú]/gi;
   
     var valida_nome = nome.match(padrao);
     var valida_sobrenome = sobrenome.match(padrao);
     if( valida_nome || !nome ){
-      error = "Nome inválido!"; 
+      setNameError("Nome inválido!");
+      return false;
     }
   
     if( valida_sobrenome || !sobrenome ){
-      error = "Sobrenome inválido!";
+      setNameError("Sobrenome inválido!");
+      return false;
     }
-
-    setNameError(error);
-    return error;
+    setNameError("");
+    return true;
   
   };
   
   const verifyUserEmail = (userEmail) =>{
-    var error = "";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
     if (!userEmail) {
-      error = 'O campo de e-mail está vazio.';
+      setEmailError('O campo de e-mail está vazio.');
+      return false;
     }
 
     if (!emailRegex.test(userEmail)) {
-      error = 'E-mail inválido. Por favor, insira um e-mail válido.';
+      setEmailError('E-mail inválido. Por favor, insira um e-mail válido.');
+      return false;
     }
-    setEmailError(error);
-    return error;
+    setEmailError("");
+    return true;
   };
   
   const verifyUserPassword = (userPassword) =>{
-    var error = "";
-    if (userPassword == null || userPassword.length < 4) error = ("Senha não pode ser vazia ou muito curta!");
-    setPasswordError(error);
-    return error;
+    if (!userPassword || userPassword.length < 4) 
+      {
+        setPasswordError("Senha não pode ser vazia ou muito curta!");
+        return false;
+      }
+    setPasswordError("");
+    return true;
   };
 
   const handleValidate = () =>{
-    const isValid1 = verifyUserName(firstName, lastName);
+    const isValid = verifyUserName(firstName, lastName);
     const isValid2 = verifyUserEmail(email);
     const isValid3 = verifyUserPassword(password);
-    if (isValid1 == "" && isValid2 == "" && isValid3 == "")
+    if (isValid && isValid2 && isValid3)
     {
       navigation.navigate("Preencha seu Perfil", {firstName, lastName, email, password});
     }
