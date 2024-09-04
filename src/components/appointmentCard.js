@@ -5,7 +5,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 const AppointmentCard = ({ source, title, specialty, clinic }) => {
   return (
     <View>
-      <TouchableOpacity style={styles.pushCard}>
+      <TouchableOpacity style={styles.pushCard} activeOpacity={0.85}>
         <Card style={styles.card}>
           <View style={styles.containerCard}>
             <View style={styles.containerDate}>

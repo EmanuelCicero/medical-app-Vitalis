@@ -2,10 +2,10 @@ import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-paper";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-const CardDoctors = ({source, title, specialty, clinic}) => {
+const CardDoctors = ({source, title, specialty, clinic, onPress, disabled}) => {
   return (
     <View>
-      <TouchableOpacity style={styles.pushCard}>
+      <TouchableOpacity style={styles.pushCard} onPress={onPress} activeOpacity={0.85} disabled={disabled}>
         <Card style={styles.card}>
             <View style={styles.cardContent}>
               <View>
@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   cardContent:{
-    flex:1,
     flexDirection:"row",
     justifyContent:"space-evenly",
     paddingVertical: 15,
