@@ -38,7 +38,7 @@ export function Doctors({ navigation, route }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <Appbar.Header>
-          <Appbar.BackAction onPress={() => {}} />
+          <Appbar.BackAction onPress={() => navigation.navigate("Main")} />
           <Appbar.Content title="Médicos" />
         </Appbar.Header>
 
@@ -123,6 +123,7 @@ export function Doctors({ navigation, route }) {
                 title={doctor.title}
                 specialty={doctor.specialty}
                 clinic={doctor.clinic}
+                onPress={() => navigation.navigate("Profile Doctors", { doctor})}
               />))}
             </ScrollView>
           </View>
