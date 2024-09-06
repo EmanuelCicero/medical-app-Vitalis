@@ -6,3 +6,4 @@ export * from "./profile/profile";
 export * from "./main/main";
 export * from "./doctors/doctors"
 export * from "./profileDoctors/profileDoctors"
+export * from "./scheduling/scheduling"

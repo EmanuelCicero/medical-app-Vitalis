@@ -40,7 +40,7 @@ const { doctor } = route.params;
             </Card>
           </View>
           <View>
-              <Button title={"Agendar Consulta"}/>
+              <Button title={"Agendar Consulta"} onPress={() => navigation.navigate("Scheduling", {doctor})}/>
           </View>
         </View>
       </SafeAreaView>
