@@ -14,7 +14,10 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
   name_input_container: {
+    justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
+    flexWrap: 'wrap',
   },
   name_input: {
     height: 46,

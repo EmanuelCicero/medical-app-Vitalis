@@ -1,75 +1,23 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { TextInput } from 'react-native-paper';
+import { useFormValidation } from '../../api/utils/validation';
 import Button from "../../components/button";
+import ViewError from "../../components/viewError";
 import { styles } from "./style_register";
 
-export function telaCadastro({ navigation }) {
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-  const [nameError, setNameError] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [emailError, setEmailError] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [passwordError, setPasswordError] = React.useState('');
+export function telaCadastro({navigation}) {
+  const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  };
+  const { values, errors, handleChange, validateInitialRegisterFields } = useFormValidation(initialValues, navigation);
   const [isVisible, setIsVisible] = React.useState(false);
   const changeVisibility = () => {
     setIsVisible(prevState => !prevState);
   }
-  const verifyUserName = (nome, sobrenome) => {
-    var padrao = /[^a-zà-ú]/gi;
-  
-    var valida_nome = nome.match(padrao);
-    var valida_sobrenome = sobrenome.match(padrao);
-    if( valida_nome || !nome ){
-      setNameError("Nome inválido!");
-      return false;
-    }
-  
-    if( valida_sobrenome || !sobrenome ){
-      setNameError("Sobrenome inválido!");
-      return false;
-    }
-    setNameError("");
-    return true;
-  
-  };
-  
-  const verifyUserEmail = (userEmail) =>{
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!userEmail) {
-      setEmailError('O campo de e-mail está vazio.');
-      return false;
-    }
-
-    if (!emailRegex.test(userEmail)) {
-      setEmailError('E-mail inválido. Por favor, insira um e-mail válido.');
-      return false;
-    }
-    setEmailError("");
-    return true;
-  };
-  
-  const verifyUserPassword = (userPassword) =>{
-    if (!userPassword || userPassword.length < 4) 
-      {
-        setPasswordError("Senha não pode ser vazia ou muito curta!");
-        return false;
-      }
-    setPasswordError("");
-    return true;
-  };
-
-  const handleValidate = () =>{
-    const isValid = verifyUserName(firstName, lastName);
-    const isValid2 = verifyUserEmail(email);
-    const isValid3 = verifyUserPassword(password);
-    if (isValid && isValid2 && isValid3)
-    {
-      navigation.navigate("Preencha seu Perfil", {firstName, lastName, email, password});
-    }
-  };
   return (
     <View style={styles.container}>
       <Text style={styles.texto_cadastro}>Cadastre-se</Text>
@@ -79,7 +27,8 @@ export function telaCadastro({ navigation }) {
           <Text style={styles.text_name}>Nome</Text>
           <TextInput
             placeholder="Seu nome"
-            onChangeText={text => setFirstName(text)} value={firstName}
+            value={values.firstName}
+            onChangeText={(text) => handleChange('firstName', text)}
             style={styles.name_input}
           />
         </View>
@@ -87,42 +36,38 @@ export function telaCadastro({ navigation }) {
           <Text style={styles.text_name}>Sobrenome</Text>
           <TextInput
             placeholder="Seu sobrenome"
-            onChangeText={text => setLastName(text)} value={lastName}
+            value={values.lastName}
+            onChangeText={(text) => handleChange('lastName', text)}
             style={styles.name_input}
           />
         </View>
-        </View>
-          {nameError? <Text style={{ color: 'red' }}>{nameError}</Text> : null}
-        <View>
+        <ViewError e={errors.firstName}/>
+        <ViewError e={errors.lastName}/>
       </View>
 
       <View>
         <Text style={styles.text_input}>E-mail</Text>
         <TextInput 
           placeholder="Digite seu e-mail" 
-          onChangeText={text => setEmail(text)} value={email}
+          onChangeText={(text) => handleChange('email', text)} value={values.email}
           style={styles.inputs} 
           right={<TextInput.Icon icon="account"/>}
         />
-        </View>
-          {emailError? <Text style={{ color: 'red' }}>{emailError}</Text> : null}
-        <View>
+        <ViewError e={errors.email}/>
 
         <Text style={styles.text_input}>Senha</Text>
         <TextInput 
           placeholder="Digite sua senha" 
-          onChangeText={text => setPassword(text)} value={password}
+          onChangeText={(text) => handleChange('password', text)} value={values.password}
           style={styles.inputs} 
           secureTextEntry={isVisible} 
           right={<TextInput.Icon icon={isVisible ? "eye-off" : "eye"} onPress={changeVisibility}/>}
           />
-       </View>
-          {passwordError? <Text style={{ color: 'red' }}>{passwordError}</Text> : null}
-        <View>  
+       <ViewError e={errors.password}/>
       </View>
       <Button
           title={"Avançar"}
-          onPress={handleValidate}
+          onPress={() => validateInitialRegisterFields("Preencha seu Perfil", {...values})}
         />
 
       <View style={styles.login_text_container}>
