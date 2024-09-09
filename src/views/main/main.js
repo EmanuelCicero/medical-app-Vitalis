@@ -15,8 +15,8 @@ import {styles} from "./styleMain"
 
 const imagesCarousel = [
   { uri: "https://i.postimg.cc/W1YVWcqw/Banner.jpg" },
-  { uri: "https://i.postimg.cc/W1YVWcqw/Banner.jpg" },
-  { uri: "https://i.postimg.cc/W1YVWcqw/Banner.jpg" },
+  { uri: "https://i.postimg.cc/y8P8qpkn/Banner.png" },
+  { uri: "https://i.postimg.cc/Y9q1RMpT/Banner-1.png" },
 ];
 
 export function Main( { navigation, route }) {
@@ -74,7 +74,9 @@ export function Main( { navigation, route }) {
                     <Text style={styles.titleCard}> Serviços </Text>
                   </View>
                   <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity 
+                      onPress={() => navigation.navigate("Doctors")}
+                    >
                       <Text style={{ fontSize: 14 }}>
                         Ver tudo
                         <MaterialCommunityIcons
@@ -88,6 +90,7 @@ export function Main( { navigation, route }) {
                 </View>
 
                 <View style={styles.containerSpecialtiesButton}>
+
                   {/* Button 1 */}
                   <View style={styles.boxSpecialtiesButton}>
                     <View>
@@ -140,17 +143,18 @@ export function Main( { navigation, route }) {
                   <ScrollView
                     horizontal
                     scrollEventThrottle={16}
-                    style={{ gap: 10, display: "flex" }}
+                    style={{ gap: 10}}
+                    showsHorizontalScrollIndicator={false}
                   >
                     <Card>
                       <View style={styles.spaceContent}>
                         <Image
-                          source={require("../../assets/consultorio_image.png")}
+                          source={require("../../assets/offices/office1.png")}
                         ></Image>
                         <Text> Clínica Saúde e Bem-Estar</Text>
                         <Text>
                           <MaterialCommunityIcons
-                            name="map-marker"
+                            name="map-marker-outline"
                             size={18}
                             color="black"
                           />
@@ -162,12 +166,13 @@ export function Main( { navigation, route }) {
                     <Card style={{ marginLeft: 20 }}>
                       <View style={styles.spaceContent}>
                         <Image
-                          source={require("../../assets/consultorio_image.png")}
+                          source={require("../../assets/offices/office2.jpg")}
+                          style={styles.styleImageOffice}
                         ></Image>
                         <Text> Clínica Saúde e Bem-Estar</Text>
                         <Text>
                           <MaterialCommunityIcons
-                            name="map-marker"
+                            name="map-marker-outline"
                             size={18}
                             color="black"
                           />
@@ -179,12 +184,13 @@ export function Main( { navigation, route }) {
                     <Card style={{ marginLeft: 20 }}>
                     <View style={styles.spaceContent}>
                       <Image
-                        source={require("../../assets/consultorio_image.png")}
+                        source={require("../../assets/offices/office3.jpg")}
+                        style={styles.styleImageOffice}
                       ></Image>
                       <Text> Clínica Saúde e Bem-Estar</Text>
                       <Text>
                         <MaterialCommunityIcons
-                          name="map-marker"
+                          name="map-marker-outline"
                           size={18}
                           color="black"
                         />

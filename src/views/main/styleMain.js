@@ -77,5 +77,11 @@ export const styles = StyleSheet.create({
     },
     titleCard:{
       fontSize: 22
+    },
+    styleImageOffice:{
+      width: 245,
+      height: 123, 
+      borderTopLeftRadius: 10, 
+      borderTopRightRadius: 10
     }
   });
