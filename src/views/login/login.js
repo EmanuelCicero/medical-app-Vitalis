@@ -13,7 +13,7 @@ export function telaLogin({ navigation }) {
   };
   const { values, errors, handleChange, validateLoginFields } =
     useFormValidation(initialValues, navigation);
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(true);
   const changeVisibility = () => {
     setIsVisible((prevState) => !prevState);
   };

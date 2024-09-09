@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     },
     inputs: {
       backgroundColor: "rgb(228, 241, 238)",
+      borderRadius: 5
     },
     signup_container: {
       flexDirection: "row",
@@ -25,12 +26,14 @@ export const styles = StyleSheet.create({
     signup_text: {
       textDecorationLine: "underline",
       color: "rgb(29,72,99)",
+      fontSize: 16
     },
     forgot_password: {
       marginTop: 15,
       textAlign: "center",
       textDecorationLine: "underline",
       color: "rgb(29,72,99)",
+      fontSize: 16
     },
     containerInputs:{
       marginHorizontal: "auto",
@@ -39,6 +42,9 @@ export const styles = StyleSheet.create({
       gap: 5
     },
     textLabel:{
+      fontSize: 16
+    },
+    texto_cadastro:{
       fontSize: 16
     }
   });

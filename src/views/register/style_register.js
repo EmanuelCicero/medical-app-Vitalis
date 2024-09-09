@@ -20,19 +20,22 @@ export const styles = StyleSheet.create({
   name_input: {
     backgroundColor: "rgb(228, 241, 238)",
     borderRadius: 5,
-    width:180
+    width:180, 
+
   },
   text_name: {
     fontSize: 16
   },
   inputs: {
     backgroundColor: "rgb(228, 241, 238)",
+    borderRadius: 5,
   },
   text_input: {
     fontSize: 16,
   },
   texto_login: {
     textAlign: "center",
+    fontSize: 16
   },
   login_text_container: {
     marginTop: 25,
@@ -42,6 +45,7 @@ export const styles = StyleSheet.create({
   login_text_hyperlink: {
     textDecorationLine: "underline",
     color: "rgb(29,72,99)",
+    fontSize: 16
   },
   containerInputs:{
     marginHorizontal: "auto",

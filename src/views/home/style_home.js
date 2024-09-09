@@ -51,5 +51,9 @@ export const styles = StyleSheet.create({
   signup_text: {
     textDecorationLine: "underline",
     color: "#0E3C58",
+    fontSize: 16
   },
+  texto_cadastro:{
+    fontSize: 16
+  }
 });
