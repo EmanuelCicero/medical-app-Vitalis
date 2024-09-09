@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    borderWidth: 0.3,
     justifyContent: "center"
   },
   navBar: {

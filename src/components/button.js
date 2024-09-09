@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4D9B91",
     paddingVertical: 10,
     width: "100%",
-    maxWidth: 350,
+    maxWidth: 370,
     borderRadius: 10,
     marginHorizontal: "auto",
   },
