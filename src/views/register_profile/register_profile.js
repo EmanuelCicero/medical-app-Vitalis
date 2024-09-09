@@ -111,7 +111,7 @@ export function telaPreencherPerfil({ route, navigation }) {
                 <View style={styles.container_button}>
                     <Button
                         title={"Cadastrar"}
-                        onPress={() => validateRemainingRegisterFields('Main', {firstName, lastName, email, password, cpf: values.cpf, birthDate: values.birthDate, gender: values.gender})}
+                        onPress={() => validateRemainingRegisterFields({firstName, lastName, email, password, cpf: values.cpf, birthDate: values.birthDate, gender: values.gender})}
                     />
                 </View>
             </View>
