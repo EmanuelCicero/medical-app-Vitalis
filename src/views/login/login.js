@@ -24,7 +24,7 @@ export function telaLogin({ navigation }) {
 
       <View style={{marginHorizontal: 20}}>
 
-        <View style={{gap: 20, paddingVertical: 20}}>
+        <View style={{gap: 5, paddingVertical: 20}}>
 
           <View style={styles.containerInputs}>
             <Text style={styles.texto_caixa}>E-mail</Text>

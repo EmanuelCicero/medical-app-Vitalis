@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
     backgroundColor: "white",
     justifyContent: "center",
-    alignItems: "center",
   },
   texto_cadastro: {
     fontSize: 28,
@@ -14,30 +13,23 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
   name_input_container: {
-    justifyContent: "center",
-    alignItems: "center",
     flexDirection: "row",
-    flexWrap: 'wrap',
+    gap: 10,
+    maxWidth: 370,
   },
   name_input: {
-    height: 46,
-    width: 165,
     backgroundColor: "rgb(228, 241, 238)",
     borderRadius: 5,
-    margin: 10,
+    width:180
   },
   text_name: {
-    marginLeft: 10,
+    fontSize: 16
   },
   inputs: {
-    height: 46,
-    width: 350,
     backgroundColor: "rgb(228, 241, 238)",
-    borderRadius: 5,
-    marginBottom: 20,
   },
   text_input: {
-    margin: 5,
+    fontSize: 16,
   },
   texto_login: {
     textAlign: "center",
@@ -51,4 +43,11 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
     color: "rgb(29,72,99)",
   },
+  containerInputs:{
+    marginHorizontal: "auto",
+    maxWidth: 370, 
+    width: "100%",
+    gap: 5, 
+    marginVertical: 20
+    },
 });

@@ -19,6 +19,9 @@ export const styles = StyleSheet.create({
       justifyContent: "center",
       marginTop: 15,
     },
+    texto_caixa:{
+      fontSize: 16
+    },
     signup_text: {
       textDecorationLine: "underline",
       color: "rgb(29,72,99)",
