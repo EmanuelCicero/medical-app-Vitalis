@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      flexDirection: "column",
       backgroundColor: "white",
       justifyContent: "center",
     },
@@ -13,14 +12,7 @@ export const styles = StyleSheet.create({
       alignSelf: "center",
     },
     inputs: {
-      height: 46,
-      width: 350,
       backgroundColor: "rgb(228, 241, 238)",
-      borderRadius: 5,
-      margin: 20,
-    },
-    texto_caixa: {
-      marginLeft: 20,
     },
     signup_container: {
       flexDirection: "row",
@@ -37,5 +29,14 @@ export const styles = StyleSheet.create({
       textDecorationLine: "underline",
       color: "rgb(29,72,99)",
     },
+    containerInputs:{
+      marginHorizontal: "auto",
+      maxWidth: 370, 
+      width: "100%",
+      gap: 5
+    },
+    textLabel:{
+      fontSize: 16
+    }
   });
   
