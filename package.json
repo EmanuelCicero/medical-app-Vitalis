@@ -18,7 +18,7 @@
     "dotenv": "^16.4.5",
     "expo": "~51.0.26",
     "expo-status-bar": "~1.12.1",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "medical-app-mobile": "file:",
     "mongoose": "^8.6.0",
