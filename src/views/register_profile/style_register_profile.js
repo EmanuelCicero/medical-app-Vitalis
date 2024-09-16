@@ -1,15 +1,19 @@
 import { StyleSheet } from "react-native";
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        marginRight: 'auto',
-        marginLeft: 'auto',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: "#fff",
+    },
+    containerContent:{
+        alignItems: "center",
     },
     avatar_container:{
         position: 'relative',
+        
     },
     iconButton: {
         position: 'absolute',
@@ -23,40 +27,28 @@ export const styles = StyleSheet.create({
         margin: '0', 
     },
     inputs: {
-        height: 46,
-        width: 350,
         backgroundColor: "rgb(228, 241, 238)",
         borderRadius: 5,
-        marginVertical: 10,
     },
     text_input: {
-        margin: 5,
+       fontSize: 16
     },
     label: {
         fontSize: 18,
         marginBottom: 10,
     },
-    
     text: {
-        fontSize: 14,
-        marginBottom: 10,
+        fontSize: 16,
     },
     selectButton: {
         backgroundColor: "rgb(228, 241, 238)",
-        padding: 10,
         borderRadius: 5,
-        height: 46,
-        width: 350,
-        alignItems: 'center',
+        height: 56,
+        justifyContent: "center",
     },
     selectText: {
         fontSize: 16,
-    },
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        paddingHorizontal: 16
     },
     modalContent: {
         backgroundColor: 'white',
@@ -71,7 +63,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
     },
     container_button:{
-        marginTop: 30,
+        marginTop: 50,
     },
 
 });
