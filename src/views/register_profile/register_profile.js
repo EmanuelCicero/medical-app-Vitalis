@@ -10,7 +10,7 @@ import { Picker } from '@react-native-picker/picker';
 export function telaPreencherPerfil({ route, navigation }) {
 
     const [gender, setGender] = React.useState("")
-    // const { firstName, lastName, email, password } = route.params;
+    const { firstName, lastName, email, password } = route.params;
     const initialValues = {
         cpf: '',
         birthDate: '',
