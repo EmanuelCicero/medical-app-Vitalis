@@ -3,9 +3,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const registerUser = async (userData) => {
-    const user = new User(userData);
-    await user.save();
-    return user;
+  const user = new User(userData);
+  await user.save();
+  return user;
 };
 
 const loginUser = async (email, password) => {

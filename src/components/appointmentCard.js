@@ -1,15 +1,38 @@
 import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-paper";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { useDeleteAppointment } from "../api/utils/useDeleteAppointments";
+import { useNavigation } from '@react-navigation/native';
+import doctorsData from "../data/doctorsData";
 
-const AppointmentCard = ({ source, title, specialty, clinic }) => {
+const AppointmentCard = ({ dateAppointment, timeAppointment, source, title, specialty, clinic, appointmentId, updateAppointments }) => {
+  const { deleteAppointment } = useDeleteAppointment();
+  const navigation = useNavigation();
+
+  const handleDelete = () => {
+    if (appointmentId) {
+      deleteAppointment(appointmentId, updateAppointments);
+    }
+  };
+
+  
+
+  const handleReschedule = (id) => {
+    if (appointmentId) {
+      const doctor = doctorsData.find((doc) => doc.title === title);
+      navigation.navigate('Scheduling', { appointmentId: id, doctor});
+    }
+    
+  };
+
+
   return (
     <View>
       <TouchableOpacity style={styles.pushCard} activeOpacity={0.85}>
         <Card style={styles.card}>
           <View style={styles.containerCard}>
             <View style={styles.containerDate}>
-              <Text style={styles.styleDate}>19/04/2024 - 14:00 PM</Text>
+              <Text style={styles.styleDate}>{dateAppointment + ' - ' + timeAppointment}</Text>
             </View>
 
             <View style={styles.cardContent}>
@@ -31,16 +54,17 @@ const AppointmentCard = ({ source, title, specialty, clinic }) => {
             </View>
 
             <View style={styles.containerButtons}>
-                <View>
-                  <TouchableOpacity style={styles.buttonReschedule}>
-                    <Text style={styles.textReschedule}> Remarcar </Text>
-                  </TouchableOpacity>
-                </View>
-                <View>
-                  <TouchableOpacity style={styles.buttonCancel}>
-                  <Text style={styles.textCancel}> Cancelar </Text>
-                  </TouchableOpacity>
-                </View>
+              <View>
+                <TouchableOpacity onPress={() => handleReschedule(appointmentId)} style={styles.buttonReschedule}>
+                  <Text style={styles.textReschedule}> Remarcar </Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                onPress={handleDelete}
+                style={styles.buttonCancel}
+              >
+                <Text style={styles.textCancel}> Cancelar </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Card>
@@ -80,36 +104,36 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     gap: 20
   },
-  containerDate:{
-    padding:10,
+  containerDate: {
+    padding: 10,
   },
-  styleDate:{
-    fontSize:16
-  }, 
-  containerButtons:{
-    flexDirection:"row",
+  styleDate: {
+    fontSize: 16
+  },
+  containerButtons: {
+    flexDirection: "row",
     justifyContent: "space-evenly",
-    marginBottom:20
+    marginBottom: 20
 
   },
-  buttonReschedule:{
+  buttonReschedule: {
     borderWidth: 2,
     borderColor: "#0E3C58",
     paddingHorizontal: 25,
     paddingVertical: 10,
     borderRadius: 10
-  }, 
-  buttonCancel:{
-    backgroundColor:"#4D9B91",
+  },
+  buttonCancel: {
+    backgroundColor: "#4D9B91",
     paddingHorizontal: 25,
     paddingVertical: 12,
     borderRadius: 10,
   },
-  textCancel:{
-    color:"#fff",
+  textCancel: {
+    color: "#fff",
     fontSize: 16
   },
-  textReschedule:{
+  textReschedule: {
     fontSize: 16
   }
 });

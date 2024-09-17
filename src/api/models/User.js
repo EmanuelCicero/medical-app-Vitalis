@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
   gender: { type: String, required: true },
 });
 
+
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next();
@@ -20,5 +21,6 @@ UserSchema.pre('save', async function (next) {
 });
 
 const User = mongoose.model('User', UserSchema);
+
 
 module.exports = User;

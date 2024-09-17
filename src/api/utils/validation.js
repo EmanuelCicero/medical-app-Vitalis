@@ -1,8 +1,12 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useContext } from 'react';
+import { AuthContext } from './authProvider';
 import { useState } from 'react';
 
 export function useFormValidation(initialValues, navigation) {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
+    const { setUser } = useContext(AuthContext);
 
     const handleChange = (name, value) => {
         setValues({
@@ -137,8 +141,11 @@ export function useFormValidation(initialValues, navigation) {
                     }),
                 });
                 if (response.ok) {
-                    navigation.navigate("Main");
-                    alert('Login realizado com sucesso!');
+                    const { user, token } = await response.json();
+                    const userId = {id: user._id }
+                    await AsyncStorage.setItem('userId', userId.id);
+                    await AsyncStorage.setItem('token', token);
+                    setUser(true);
                     console.log('Login realizado com sucesso!');
                 } else {
                     const errorData = await response.json();
@@ -196,9 +203,10 @@ export function useFormValidation(initialValues, navigation) {
                         gender: params.gender,
                     }),
                 });
+                console.log(response.body);
                 if (response.ok) {
-                    navigation.navigate("Main");
-                    alert('Cadastro realizado com sucesso!');
+                    alert("Cadastro realizado com sucesso! Faça login para continuar!");
+                    navigation.navigate('Login');
                     console.log('Cadastro realizado com sucesso!');
                 } else {
                     const errorData = await response.json();
