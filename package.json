@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
@@ -24,14 +25,40 @@
     "medical-app-mobile": "file:",
     "mongoose": "^8.6.0",
     "react": "18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.74.5",
     "react-native-calendars": "^1.1306.0",
     "react-native-paper": "^5.12.5",
     "react-native-web": "~0.19.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.7.2",
+    "@types/jest": "^29.5.12",
+    "@types/react": "~18.2.45",
+    "@types/react-test-renderer": "^18.0.7",
+    "jest": "^29.2.1",
+    "jest-expo": "~51.0.3",
+    "jest-fetch-mock": "^3.0.3",
+    "react-test-renderer": "18.2.0"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg)"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "private": true
 }
