@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import { SafeAreaView, View, Text } from "react-native";
-import CardDoctors from "../../components/cardDoctors"
-import { Card, Appbar } from 'react-native-paper';
-import Button from '../../components/button';
-import { styles } from "./styleProfileDoctors.js"
+import CardDoctors from "../../components/cardDoctors/cardDoctors.js";
+import { Card, Appbar } from "react-native-paper";
+import Button from "../../components/button/button.js";
+import { styles } from "./styleProfileDoctors.js";
 
 export function ProfileDoctors({ route, navigation }) {
   const { doctor } = route.params;
@@ -22,9 +22,7 @@ export function ProfileDoctors({ route, navigation }) {
             specialty={doctor.specialty}
             clinic={doctor.clinic}
             disabled={true}
-          >
-
-          </CardDoctors>
+          ></CardDoctors>
         </View>
         <View>
           <Card style={styles.pushCard}>

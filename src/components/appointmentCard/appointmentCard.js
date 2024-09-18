@@ -1,9 +1,9 @@
 import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-paper";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { useDeleteAppointment } from "../api/utils/useDeleteAppointments";
+import { useDeleteAppointment } from "../../api/utils/useDeleteAppointments";
 import { useNavigation } from '@react-navigation/native';
-import doctorsData from "../data/doctorsData";
+import doctorsData from "../../data/doctorsData";
 
 const AppointmentCard = ({ dateAppointment, timeAppointment, source, title, specialty, clinic, appointmentId, updateAppointments }) => {
   const { deleteAppointment } = useDeleteAppointment();

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { View, Text, Image, TouchableOpacity,  ScrollView } from "react-native";
-import Button from "../../components/button";
+import { View, Text, Image, TouchableOpacity} from "react-native";
+import Button from "../../components/button/button";
 import { styles } from "./style_home";
 
 export function telaHome({ navigation }) {

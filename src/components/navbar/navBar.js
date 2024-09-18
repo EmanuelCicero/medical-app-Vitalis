@@ -12,21 +12,22 @@ const NavBar = ({ navigation, route }) => {
     <View>
       <Card style={styles.containerNavBar}>
         <View style={styles.navBar}>
-          <TouchableOpacity onPress={() => navigation.navigate("Main")}>
+          <TouchableOpacity testID="screenMain" onPress={() => navigation.navigate("Main")}>
             <MaterialCommunityIcons
               name="home"
               size={40}
               color={changeColorIcon("Main")}
+              accessibilityLabel="home-icon"
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Doctors")}>
+          <TouchableOpacity testID="screenDoctors" onPress={() => navigation.navigate("Doctors")}>
             <MaterialCommunityIcons
               name="calendar-check"
               size={40}
               color={changeColorIcon("Doctors")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Perfil")}>
+          <TouchableOpacity testID="screenProfile" onPress={() => navigation.navigate("Perfil")}>
             <MaterialCommunityIcons
               name="account"
               size={40}

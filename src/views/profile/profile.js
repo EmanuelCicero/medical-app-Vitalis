@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Avatar, Icon, TextInput } from 'react-native-paper';
 import { styles } from "./style_profile";
-import NavBar from "../../components/navBar"
+import NavBar from "../../components/navbar/navBar"
 import { AuthContext } from '../../api/utils/authProvider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext } from 'react';

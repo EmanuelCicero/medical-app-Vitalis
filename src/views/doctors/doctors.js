@@ -7,15 +7,14 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import NavBar from "../../components/navBar";
-import SpecialtyFilter from "../../components/specialtyFilter";
-import AppointmentCard from "../../components/appointmentCard"
-import CardDoctors from "../../components/cardDoctors";
-import { Appbar, Button, DataTable } from "react-native-paper";
+import NavBar from "../../components/navbar/navBar";
+import SpecialtyFilter from "../../components/specialtyFilter/specialtyFilter";
+import AppointmentCard from "../../components/appointmentCard/appointmentCard"
+import CardDoctors from "../../components/cardDoctors/cardDoctors";
+import { Appbar,} from "react-native-paper";
 import doctorsData from "../../data/doctorsData";
 import { styles } from "./style_doctors"
 import { useFetchAppointments } from "../../api/utils/useFetchAppoinments";
-import { useScrollToTop } from "@react-navigation/native";
 
 
 const { width: screenWidth } = Dimensions.get("window");
@@ -172,5 +171,3 @@ export function Doctors({ navigation, route }) {
     </SafeAreaView>
   );
 }
-
-

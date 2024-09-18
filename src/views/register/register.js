@@ -2,8 +2,8 @@ import * as React from "react";
 import { View, Text, TouchableOpacity, SafeAreaView} from "react-native";
 import { TextInput } from 'react-native-paper';
 import { useFormValidation } from '../../api/utils/validation';
-import Button from "../../components/button";
-import ViewError from "../../components/viewError";
+import Button from "../../components/button/button";
+import ViewError from "../../components/viewError/viewError";
 import { styles } from "./style_register";
 
 export function telaCadastro({navigation}) {

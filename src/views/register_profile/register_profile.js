@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity,SafeAreaView } from "react-native";
 import { Avatar, IconButton, TextInput} from 'react-native-paper';
 import { styles } from "./style_register_profile";
 import { useFormValidation } from '../../api/utils/validation';
-import ViewError from "../../components/viewError";
-import Button from "../../components/button";
+import ViewError from "../../components/viewError/viewError";
+import Button from "../../components/button/button";
 import { Picker } from '@react-native-picker/picker';
 
 export function telaPreencherPerfil({ route, navigation }) {
@@ -100,7 +100,7 @@ export function telaPreencherPerfil({ route, navigation }) {
                     <View style={styles.container_button}>
                         <Button
                             title={"Cadastrar"}
-                            onPress={() => validateRemainingRegisterFields({firstName, lastName, email, password, cpf: values.cpf, birthDate: values.birthDate, gender: values.gender}, alert(gender))}
+                            onPress={() => validateRemainingRegisterFields({firstName, lastName, email, password, cpf: values.cpf, birthDate: values.birthDate, gender: values.gender})}
                         />
                     </View>
                 </View>

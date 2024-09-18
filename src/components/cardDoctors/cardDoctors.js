@@ -1,6 +1,7 @@
 import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-paper";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 const CardDoctors = ({source, title, specialty, clinic, onPress, disabled}) => {
   return (
@@ -9,7 +10,7 @@ const CardDoctors = ({source, title, specialty, clinic, onPress, disabled}) => {
         <Card style={styles.card}>
             <View style={styles.cardContent}>
               <View>
-                <Image source={source}></Image>
+                <Image testID="doctorImage" source={source}></Image>
               </View>
               <View style={{gap:10, width:180}}>
                   <Text style={styles.textTitle}>{title}</Text>

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { TextInput } from "react-native-paper";
-import ViewError from "../../components/viewError";
+import ViewError from "../../components/viewError/viewError";
 import { useFormValidation } from "../../api/utils/validation";
-import Button from "../../components/button";
+import Button from "../../components/button/button";
 import { styles } from "./style_login";
 
 export function telaLogin({ navigation }) {
@@ -11,8 +11,7 @@ export function telaLogin({ navigation }) {
     email: "",
     password: "",
   };
-  const { values, errors, handleChange, validateLoginFields } =
-    useFormValidation(initialValues, navigation);
+  const { values, errors, handleChange, validateLoginFields } = useFormValidation(initialValues, navigation);
   const [isVisible, setIsVisible] = React.useState(true);
   const changeVisibility = () => {
     setIsVisible((prevState) => !prevState);
@@ -33,7 +32,8 @@ export function telaLogin({ navigation }) {
               onChangeText={(text) => handleChange("email", text)}
               value={values.email}
               style={styles.inputs}
-              right={<TextInput.Icon icon="account" />}
+              right={<TextInput.Icon icon="account"
+              />}
             />
             <ViewError e={errors.email} />
           </View>

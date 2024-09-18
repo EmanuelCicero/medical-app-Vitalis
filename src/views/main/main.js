@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Card } from "react-native-paper";
-import NavBar from "../../components/navBar";
-import {styles} from "./styleMain"
+import NavBar from "../../components/navbar/navBar";
+import { styles } from "./styleMain";
 
 const imagesCarousel = [
   { uri: "https://i.postimg.cc/W1YVWcqw/Banner.jpg" },
@@ -19,7 +19,7 @@ const imagesCarousel = [
   { uri: "https://i.postimg.cc/Y9q1RMpT/Banner-1.png" },
 ];
 
-export function Main( { navigation, route }) {
+export function Main({ navigation, route }) {
   const handleFlashScrollIndicators = () => {
     if (scrollViewRef.current) {
       scrollViewRef.current.flashScrollIndicators();
@@ -74,7 +74,7 @@ export function Main( { navigation, route }) {
                     <Text style={styles.titleCard}> Serviços </Text>
                   </View>
                   <View>
-                    <TouchableOpacity 
+                    <TouchableOpacity
                       onPress={() => navigation.navigate("Doctors")}
                     >
                       <Text style={{ fontSize: 14 }}>
@@ -90,7 +90,6 @@ export function Main( { navigation, route }) {
                 </View>
 
                 <View style={styles.containerSpecialtiesButton}>
-
                   {/* Button 1 */}
                   <View style={styles.boxSpecialtiesButton}>
                     <View>
@@ -143,7 +142,7 @@ export function Main( { navigation, route }) {
                   <ScrollView
                     horizontal
                     scrollEventThrottle={16}
-                    style={{ gap: 10}}
+                    style={{ gap: 10 }}
                     showsHorizontalScrollIndicator={false}
                   >
                     <Card>
@@ -182,28 +181,28 @@ export function Main( { navigation, route }) {
                     </Card>
 
                     <Card style={{ marginLeft: 20 }}>
-                    <View style={styles.spaceContent}>
-                      <Image
-                        source={require("../../assets/offices/office3.jpg")}
-                        style={styles.styleImageOffice}
-                      ></Image>
-                      <Text> Clínica Saúde e Bem-Estar</Text>
-                      <Text>
-                        <MaterialCommunityIcons
-                          name="map-marker-outline"
-                          size={18}
-                          color="black"
-                        />
-                        Rua das Flores, 123, Centro
-                      </Text>
-                    </View>
+                      <View style={styles.spaceContent}>
+                        <Image
+                          source={require("../../assets/offices/office3.jpg")}
+                          style={styles.styleImageOffice}
+                        ></Image>
+                        <Text> Clínica Saúde e Bem-Estar</Text>
+                        <Text>
+                          <MaterialCommunityIcons
+                            name="map-marker-outline"
+                            size={18}
+                            color="black"
+                          />
+                          Rua das Flores, 123, Centro
+                        </Text>
+                      </View>
                     </Card>
                   </ScrollView>
                 </View>
               </Card.Content>
             </Card>
           </View>
-          <NavBar navigation={navigation} route={route}/>
+          <NavBar navigation={navigation} route={route} />
         </ImageBackground>
       </View>
     </SafeAreaView>

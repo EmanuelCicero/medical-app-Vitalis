@@ -2,8 +2,8 @@ import * as React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { Picker } from '@react-native-picker/picker';
-import { Appbar, Card, Modal, Portal, Provider, } from 'react-native-paper';
-import Button from '../../components/button';
+import {  Appbar, Card,  Modal, Portal, Provider,} from 'react-native-paper';
+import Button from '../../components/button/button';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { styles } from "./styleScheduling";
 import { getUserId } from '../../api/utils/getUserId';
@@ -70,13 +70,13 @@ export function ScheduleAppointment({ navigation}) {
 
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Provider>
+    <SafeAreaView style={styles.container}> 
         <Appbar.Header>
-          <Appbar.BackAction onPress={() => navigation.navigate("Profile Doctors", { doctor })} />
-          <Appbar.Content title="Detalhes do Médico" />
+            <Appbar.BackAction onPress={() => navigation.navigate("Profile Doctors" , { doctor })}  />
+            <Appbar.Content title="Detalhes do Médico" />
         </Appbar.Header>
-        <View style={styles.containerContent}>
+      <Provider>
+      <View style={styles.containerContent}>
 
           <Card style={styles.styleCard}>
             <Calendar
