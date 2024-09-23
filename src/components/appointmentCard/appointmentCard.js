@@ -5,7 +5,7 @@ import { useDeleteAppointment } from "../../api/utils/useDeleteAppointments";
 import { useNavigation } from '@react-navigation/native';
 import doctorsData from "../../data/doctorsData";
 
-const AppointmentCard = ({ dateAppointment, timeAppointment, source, title, specialty, clinic, appointmentId, updateAppointments }) => {
+const AppointmentCard = ({ dateAppointment, timeAppointment, source, title, specialty, clinic, appointmentId, updateAppointments}) => {
   const { deleteAppointment } = useDeleteAppointment();
   const navigation = useNavigation();
 
@@ -55,13 +55,14 @@ const AppointmentCard = ({ dateAppointment, timeAppointment, source, title, spec
 
             <View style={styles.containerButtons}>
               <View>
-                <TouchableOpacity onPress={() => handleReschedule(appointmentId)} style={styles.buttonReschedule}>
+                <TouchableOpacity testID={"buttonRemarcar"} onPress={() => handleReschedule(appointmentId)} style={styles.buttonReschedule}>
                   <Text style={styles.textReschedule}> Remarcar </Text>
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
                 onPress={handleDelete}
                 style={styles.buttonCancel}
+                testID={"buttonCancelar"} 
               >
                 <Text style={styles.textCancel}> Cancelar </Text>
               </TouchableOpacity>
