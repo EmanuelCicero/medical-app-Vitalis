@@ -6,7 +6,7 @@ import Button from "../../components/button/button";
 import ViewError from "../../components/viewError/viewError";
 import { styles } from "./style_register";
 
-export function telaCadastro({navigation}) {
+export function TelaCadastro({navigation}) {
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -74,6 +74,7 @@ export function telaCadastro({navigation}) {
             </View>
           </View>
           <Button
+              testId={"avançar"}
               title={"Avançar"}
               onPress={() => validateInitialRegisterFields("Preencha seu Perfil", {...values})}
             />

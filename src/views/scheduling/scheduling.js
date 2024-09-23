@@ -73,7 +73,7 @@ export function ScheduleAppointment({ navigation}) {
     <SafeAreaView style={styles.container}> 
         <Appbar.Header>
             <Appbar.BackAction onPress={() => navigation.navigate("Profile Doctors" , { doctor })}  />
-            <Appbar.Content title="Detalhes do Médico" />
+            <Appbar.Content title="Agendamento" />
         </Appbar.Header>
       <Provider>
       <View style={styles.containerContent}>
@@ -114,6 +114,7 @@ export function ScheduleAppointment({ navigation}) {
             </Text>
           </Card>
           <Button
+            testId={"confirmarAgendamento"}
             title={appointmentId ? "Atualizar Agendamento" : "Confirmar"}
             style={[!selectedDate || !selectedTime ? styles.buttonDisabled : null]}
             onPress={async () => {

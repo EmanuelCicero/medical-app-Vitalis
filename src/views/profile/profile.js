@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext } from 'react';
 import { useFetchAppointments } from "../../api/utils/useFetchAppoinments";
 
-export function telaMeuPerfil({ navigation, route }) {
+export function TelaMeuPerfil({ navigation, route }) {
     const { setUser } = useContext(AuthContext);
     const { clearAppointments, appointments } = useFetchAppointments();
 
@@ -30,7 +30,7 @@ export function telaMeuPerfil({ navigation, route }) {
         <View style={styles.container}>
             <View style={styles.container_image_title}>
                 <Text style={styles.title}>Perfil</Text>
-                <Avatar.Image size={170} source={require('../../assets/avatar.png')} />
+                <Avatar.Image size={170} source={require('../../assets/avatar.png')} style={{backgroundColor: "#DCDCDC"}} />
                 <Text style={styles.name}></Text>
             </View>
             <View style={styles.container_main}>

@@ -232,7 +232,7 @@ export function useFormValidation(initialValues, navigation) {
     };
 };
 
-const verifyFirstName = (firstName) => {
+export const verifyFirstName = (firstName) => {
     errorFirstName = "";
     validateFirstName = false;
     const padrao = /[^a-zà-ú]/gi;
@@ -246,7 +246,7 @@ const verifyFirstName = (firstName) => {
     return { errorFirstName, validateFirstName };
 };
 
-const verifyLastName = (lastName) => {
+export const verifyLastName = (lastName) => {
     errorLastName = "";
     validateLastName = false;
     const padrao = /[^a-zà-ú]/gi;
@@ -260,7 +260,7 @@ const verifyLastName = (lastName) => {
     return { errorLastName, validateLastName };
 };
 
-const verifyUserEmail = (userEmail) => {
+export const verifyUserEmail = (userEmail) => {
     errorEmail = "";
     validateEmail = false;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -278,7 +278,7 @@ const verifyUserEmail = (userEmail) => {
     return { errorEmail, validateEmail };
 };
 
-const verifyUserPassword = (userPassword) => {
+export const verifyUserPassword = (userPassword) => {
     errorPassword = "";
     validatePassword = false;
     if (!userPassword || userPassword.length < 4) {
@@ -289,20 +289,18 @@ const verifyUserPassword = (userPassword) => {
     return { errorPassword, validatePassword };
 };
 
-const verifyUserCpf = (strCPF) => {
+export const verifyUserCpf = (strCPF) => {
     let errorCPF = "";
     let validateCPF = false;
     let Soma;
     let Resto;
     Soma = 0;
 
-    // Verifica se o CPF é uma sequência de números iguais
     if (strCPF == "00000000000") {
         errorCPF = "CPF inválido!";
         return { errorCPF, validateCPF };
     }
 
-    // Primeiro dígito verificador
     for (let i = 1; i <= 9; i++) {
         Soma += parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     }
@@ -310,11 +308,10 @@ const verifyUserCpf = (strCPF) => {
 
     if (Resto === 10 || Resto === 11) Resto = 0;
     if (Resto != parseInt(strCPF.substring(9, 10))) {
-        errorCPF = "CPF inválido!";  // Correção: usar 'errorCPF'
+        errorCPF = "CPF inválido!"; 
         return { errorCPF, validateCPF };
     }
 
-    // Segundo dígito verificador
     Soma = 0;
     for (let i = 1; i <= 10; i++) {
         Soma += parseInt(strCPF.substring(i - 1, i)) * (12 - i);
@@ -327,27 +324,23 @@ const verifyUserCpf = (strCPF) => {
         return { errorCPF, validateCPF };
     }
 
-    // Se chegou até aqui, o CPF é válido
     validateCPF = true;
     return { errorCPF, validateCPF };
 };
 
-const verifyUserBirthDate = (valor) => {
+export const verifyUserBirthDate = (valor) => {
     errorBirthDate = "";
     validateBirthDate = false;
-    // Verifica se a entrada é uma string
     if (typeof valor !== 'string') {
         errorBirthDate = "Data de nascimento inválida!";
         return { errorBirthDate, validateBirthDate };
     }
 
-    // Verifica formato da data
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(valor)) {
         errorBirthDate = "Data de nascimento inválida!";
         return { errorBirthDate, validateBirthDate };
     }
 
-    // Divide a data para o objeto "data"
     const partesData = valor.split('/')
     const data = {
         dia: partesData[0],
@@ -355,37 +348,30 @@ const verifyUserBirthDate = (valor) => {
         ano: partesData[2]
     }
 
-    // Converte strings em número
     const dia = parseInt(data.dia)
     const mes = parseInt(data.mes)
     const ano = parseInt(data.ano)
 
-    // Dias de cada mês, incluindo ajuste para ano bissexto
     const diasNoMes = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-    // Atualiza os dias do mês de fevereiro para ano bisexto
     if (ano % 400 === 0 || ano % 4 === 0 && ano % 100 !== 0) {
         diasNoMes[2] = 29
     }
 
-    // Regras de validação:
-    // Mês deve estar entre 1 e 12, e o dia deve ser maior que zero
     if (mes < 1 || mes > 12 || dia < 1) {
         errorBirthDate = "Data de nascimento inválida!";
         return { errorBirthDate, validateBirthDate };
     }
-    // Valida número de dias do mês
     else if (dia > diasNoMes[mes]) {
         errorBirthDate = "Data de nascimento inválida!";
         return { errorBirthDate, validateBirthDate };
     }
 
     validateBirthDate = true;
-    // Passou nas validações
     return { errorBirthDate, validateBirthDate }
 };
 
-const verifyUserGender = (gender) => {
+export const verifyUserGender = (gender) => {
     errorGender = "";
     validateGender = false;
     if (!gender) {
@@ -397,16 +383,13 @@ const verifyUserGender = (gender) => {
 };
 
 const convertToJSONDate = (dateString) => {
-    // Divide a string da data em dia, mês e ano
     const parts = dateString.split('/');
     const day = parts[0];
     const month = parts[1];
     const year = parts[2];
 
-    // Cria um objeto Date com a data
     const date = new Date(year, month - 1, day);
 
-    // Converte a data para uma string no formato ISO 8601
     const isoDateString = date.toISOString();
 
     return isoDateString;

@@ -37,7 +37,7 @@ export function ProfileDoctors({ route, navigation }) {
           </Card>
         </View>
         <View>
-          <Button title={"Agendar Consulta"} onPress={() => navigation.navigate("Scheduling", { doctor })} />
+          <Button testId={"agendarConsulta"} title={"Agendar Consulta"} onPress={() => navigation.navigate("Scheduling", { doctor })} />
         </View>
       </View>
     </SafeAreaView>

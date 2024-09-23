@@ -7,7 +7,7 @@ import ViewError from "../../components/viewError/viewError";
 import Button from "../../components/button/button";
 import { Picker } from '@react-native-picker/picker';
 
-export function telaPreencherPerfil({ route, navigation }) {
+export function TelaPreencherPerfil({ route, navigation }) {
 
     const [gender, setGender] = React.useState("")
     const { firstName, lastName, email, password } = route.params;
@@ -99,6 +99,7 @@ export function telaPreencherPerfil({ route, navigation }) {
 
                     <View style={styles.container_button}>
                         <Button
+                            testId={"cadastrar"}
                             title={"Cadastrar"}
                             onPress={() => validateRemainingRegisterFields({firstName, lastName, email, password, cpf: values.cpf, birthDate: values.birthDate, gender: values.gender})}
                         />

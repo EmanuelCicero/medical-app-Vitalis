@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity} from "react-native";
 import Button from "../../components/button/button";
 import { styles } from "./style_home";
 
-export function telaHome({ navigation }) {
+export function TelaHome({ navigation }) {
   return (
       <View style={styles.container}>
         <View style={styles.row}>
@@ -25,10 +25,12 @@ export function telaHome({ navigation }) {
           />
 
           <Button
+            testId={"entrar"}
             title={"Entrar"}
             onPress={() => {
               navigation.navigate("Login");
             }}
+            
           />
 
           <View style={styles.signup_container}>
@@ -37,6 +39,7 @@ export function telaHome({ navigation }) {
               onPress={() => {
                 navigation.navigate("Cadastro");
               }}
+              testID="Entrar"
             >
               <Text style={styles.signup_text}>Cadastre-se</Text>
             </TouchableOpacity>

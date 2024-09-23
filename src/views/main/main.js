@@ -93,7 +93,7 @@ export function Main({ navigation, route }) {
                   {/* Button 1 */}
                   <View style={styles.boxSpecialtiesButton}>
                     <View>
-                      <TouchableOpacity style={styles.specialtiesButton}>
+                      <TouchableOpacity style={styles.specialtiesButton} onPress={() => navigation.navigate("Doctors")}>
                         <MaterialCommunityIcons
                           name="heart-pulse"
                           size={40}
@@ -107,7 +107,7 @@ export function Main({ navigation, route }) {
                   {/* Button 2*/}
                   <View style={styles.boxSpecialtiesButton}>
                     <View>
-                      <TouchableOpacity style={styles.specialtiesButton}>
+                      <TouchableOpacity style={styles.specialtiesButton} onPress={() => navigation.navigate("Doctors")}>
                         <MaterialCommunityIcons
                           name="brain"
                           size={40}
@@ -121,7 +121,7 @@ export function Main({ navigation, route }) {
                   {/* Button 3*/}
                   <View style={styles.boxSpecialtiesButton}>
                     <View>
-                      <TouchableOpacity style={styles.specialtiesButton}>
+                      <TouchableOpacity style={styles.specialtiesButton} onPress={() => navigation.navigate("Doctors")}>
                         <MaterialCommunityIcons
                           name="plus"
                           size={45}

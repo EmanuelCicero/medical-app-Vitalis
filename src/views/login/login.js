@@ -6,7 +6,7 @@ import { useFormValidation } from "../../api/utils/validation";
 import Button from "../../components/button/button";
 import { styles } from "./style_login";
 
-export function telaLogin({ navigation }) {
+export function TelaLogin({ navigation }) {
   const initialValues = {
     email: "",
     password: "",
@@ -59,6 +59,7 @@ export function telaLogin({ navigation }) {
         </View>
 
         <Button
+          testId={"login"}
           title={"Entrar"}
           onPress={() => validateLoginFields({ ...values })}
         />
